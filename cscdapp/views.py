@@ -793,7 +793,6 @@ def Single_people8(request):
         # PUT,DELETE,HEAD,OPTION...
         return redirect('/Single_people8/')
 
-
 def login(request):
     if request.method == "GET":
         return render(request, 'hello.html')
@@ -867,8 +866,24 @@ def login(request):
     else:
         # PUT,DELETE,HEAD,OPTION...
         return redirect('/hello/')
-
 def test(request):
-    list1 = list(models.Company_nature.objects.filter('').values_list('Type'))
-    print list1
-    return render(request,'test.html',{'obj':list1})
+    data = { "factorCode": "BOND_TYPE",
+  "factorName": "债项类型",
+  "options": [
+    {"id":10000000001836, "name":"国债", "ratio":1.05},
+    {"id":10000000001837, "name":"金融债 - 国际开发机构人民币债券、政策性银行金融债券", "ratio":1.05},
+    {"id":10000000001838, "name":"金融债 - 商业银行金融债券、其他金融机构债券", "ratio":1},
+    {"id":10000000001839, "name":"地方政府债券", "ratio":0.95},
+    {"id":10000000001840, "name":"企业债 - 一般企业债", "ratio":0.95},
+    {"id":10000000001841, "name":"公司债 - 一般公司债、可交换公司债券、可转债、资产支持证券", "ratio":0.95}
+  ]
+}
+    result = [(item.get('name')) for item in data['options']]
+    return render(request, 'test.html', {"obj": result})
+
+
+# if __name__ == '__main__':
+#     test()
+
+
+

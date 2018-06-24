@@ -3,13 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script type="text/javascript" src="../static/JavaScript/jquery.min.js"></script>
 </head>
 <body>
-<select>
-    {% for obj in list1 %}
+<form>
+     {% csrf_token %}
+<select name="company_nature">
+    {% for obj in obj %}
         <option value ="{{ forloop.counter }}">{{ obj }}</option>
     {% endfor %}
 </select>
     <input type="submit" value="提交">
+</form>
+<script>
+    $(function(){
+        $("#submit").click(() => {
+            $.ajax({
+                url: '/test/',
+                type:'post',
+                data: $("form").serialize(),
+                success(data) {
+                    data = JSON.parse(data);
+                    console.log(data)
+                    var el_list = $("#result").find("span");
+                    for (let idx = 0; idx < el_list.length; idx++) {
+                        $(el_list[idx]).text(data.json_str[idx]);
+                    }
+                }
+            })
+        })
+    })
+</script>
 </body>
 </html>
+
