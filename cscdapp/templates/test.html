@@ -7,14 +7,184 @@
 </head>
 <body>
 <form>
-     {% csrf_token %}
-<select name="company_nature">
-    {% for obj in obj %}
-        <option value ="{{ forloop.counter }}">{{ obj }}</option>
-    {% endfor %}
-</select>
-    <input type="submit" value="提交">
+    {% csrf_token %}
+    <div>
+        <h3>债项信息</h3>
+        <div class="form-group">
+          <label>债券余额：</label>
+          <input type="number" name="Company_nature" />亿元
+        </div>
+        <!-- 债项类型 -->
+        <div class="form-group">
+            <label>{{bondType_factorName}}：</label>
+            <select name="Company_nature">
+                {% for bondType in bondType%}
+                <option value="{{bondType.ratio}}" >{{ bondType.name }}</option>
+                {% endfor %}
+            </select>
+            <span>{{bondType.ratio}}</span>
+        </div>
+      </div>
+    <div>
+        <hr style="margin-top: 20px;">
+        <h3>发行人信息</h3>
+        <!-- 发行人列表 -->
+        <div>
+          <!-- 股权结构 -->
+          <div>
+            <label>{{companyNature_factorName}}：</label>
+            <select name="Company_nature">
+                {% for companyNature in companyNature%}
+                <option value="{{companyNature.ratio}}" >{{ companyNature.name }}</option>
+                {% endfor %}
+            </select>
+            <span>{{companyNature.ratio}}</span>
+          </div>
+
+          <!-- 信用环境 -->
+          <div class="form-group">
+            <label>{{creditRegion_factorName}}：</label>
+            <select name="Company_nature">
+                {% for creditRegion in creditRegion%}
+                <option value="{{creditRegion.ratio}}" >{{ creditRegion.name }}</option>
+                {% endfor %}
+            </select>
+            <span class="notice">{{creditRegion.ratio}}</span>
+          </div>
+            <!-- 发行人行业 -->
+          <div class="form-group">
+            <label>{{industary_factorName}}：</label>
+            <select name="Company_nature">
+                {% for industary in industary%}
+                <option value="{{industary.ratio}}" >{{ industary.name }}</option>
+                {% endfor %}
+            </select>
+            <span class="notice">{{industary.ratio}}</span>
+          </div>
+          <!-- 发行人评级 -->
+          <div class="form-group">
+            <label>发行人有效认定评级：</label>
+            <select name="Company_nature">
+                {% for companyRating in companyRating%}
+                <option>{{ companyRating.rating }}</option>
+                {% endfor %}
+            </select>
+          </div>
+        </div>
+    </div>
+    <!-- 抵质押品信息 -->
+      <div>
+        <hr style="margin-top: 20px;">
+        <h3>抵质押品信息</h3>
+        <!-- 抵质押品列表 -->
+        <div>
+          <div class="form-group">
+            <label>抵制押金额：</label>
+            <input type="number" name="Company_nature" />亿元
+
+          </div>
+          <!-- 抵质押品独立性 -->
+          <div class="form-group">
+            <label>{{pledgeDepend_factorName}}：</label>
+            <select name="Company_nature">
+                {% for pledgeDepend in pledgeDepend%}
+                <option value="{{pledgeDepend.ratio}}" >{{ pledgeDepend.name }}</option>
+                {% endfor %}
+            </select>
+            <span class="notice">{{pledgeDepend.ratio}}</span>
+          </div>
+          <!-- 抵质押品类型 -->
+          <div class="form-group">
+            <label>{{pledgeType_factorName}}：</label>
+            <select name="Company_nature">
+                {% for pledgeType in pledgeType%}
+                <option value="{{pledgeType.ratio}}" >{{ pledgeType.name }}</option>
+                {% endfor %}
+            </select>
+            <span class="notice">{{pledgeType.ratio}}</span>
+          </div>
+          <!-- 抵质押品控制力 -->
+          <div class="form-group">
+           <label>{{pledgeControl_factorName}}：</label>
+            <select name="Company_nature">
+                {% for pledgeControl in pledgeControl%}
+                <option value="{{pledgeControl.ratio}}" >{{ pledgeControl.name }}</option>
+                {% endfor %}
+            </select>
+            <span class="notice">{{pledgeControl.ratio}}</span>
+          </div>
+          <!-- 抵质押品执法环境 -->
+          <div class="form-group">
+            <label>{{pledgeRegion_factorName}}：</label>
+            <select name="Company_nature">
+                {% for pledgeRegion in pledgeRegion%}
+                <option value="{{pledgeRegion.ratio}}" >{{ pledgeRegion.name }}</option>
+                {% endfor %}
+            </select>
+            <span class="notice">{{pledgeRegion.ratio}}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 担保人信息 -->
+      <div>
+        <hr style="margin-top: 20px;">
+        <h3>担保人信息</h3>
+        <!-- 担保人列表 -->
+        <div>
+          <!-- 担保金额 -->
+          <div class="form-group">
+            <label>担保金额：</label>
+            <input type="number" name="Company_nature"/>亿元
+
+          </div>
+          <!-- 担保类型 -->
+          <div class="form-group">
+            <label>{{guaranteeType_factorName}}：</label>
+            <select name="Company_nature">
+                {% for guaranteeType in guaranteeType%}
+                <option value="{{guaranteeType.ratio}}" >{{ guaranteeType.name }}</option>
+                {% endfor %}
+            </select>
+            <span class="notice">{{guaranteeType.ratio}}</span>
+          </div>
+          <!-- 担保人类型 -->
+          <div class="form-group">
+            <label>{{warrantorType_factorName}}：</label>
+            <select name="Company_nature">
+                {% for warrantorType in warrantorType%}
+                <option value="{{warrantorType.ratio}}" >{{ warrantorType.name }}</option>
+                {% endfor %}
+            </select>
+            <span class="notice">{{warrantorType.ratio}}</span>
+          </div>
+          <!-- 担保强度 -->
+          <div class="form-group">
+            <label>{{warrantyStrength_factorName}}：</label>
+            <select name="Company_nature">
+                {% for warrantyStrength in warrantyStrength%}
+                <option value="{{warrantyStrength.ratio}}" >{{ warrantyStrength.name }}</option>
+                {% endfor %}
+            </select>
+            <span class="notice">{{warrantyStrength.ratio}}</span>
+          </div>
+          <!-- 担保人评级 -->
+          <div class="form-group" >
+            <label>担保人有效认定评级 ：</label>
+            <select name="Company_nature">
+                {% for warrantorRating in warrantorRating%}
+                <option>{{warrantorRating.rating}}</option>
+                {% endfor %}
+            </select>
+          </div>
+
+        </div>
+      </div>
+<input id="submit" type="button" value="提交">
 </form>
+<div id="result">
+    <p>你选择的是：<span></span></p>
+</div>
 <script>
     $(function(){
         $("#submit").click(() => {

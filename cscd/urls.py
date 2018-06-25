@@ -15,18 +15,18 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from cscdapp.views import Single_people8,test,Index,login,Single_people1,Single_people2,Single_people3,Single_people4,Single_people5,Single_people6,Single_people7
+from cscdapp.views import test
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^hello/', login),
-    url(r'^index',Index),
-    url(r'^Single_people1/',Single_people1 ),
-    url(r'^Single_people2/',Single_people2 ),
-    url(r'^Single_people3/',Single_people3 ),
-    url(r'^Single_people4/',Single_people4 ),
-    url(r'^Single_people5/',Single_people5 ),
-    url(r'^Single_people6/',Single_people6 ),
-    url(r'^Single_people7/',Single_people7 ),
-    url(r'^Single_people8/',Single_people8 ),
+    # url(r'^hello/', login),
+    # url(r'^index',Index),
+    # url(r'^Single_people1/',Single_people1 ),
+    # url(r'^Single_people2/',Single_people2 ),
+    # url(r'^Single_people3/',Single_people3 ),
+    # url(r'^Single_people4/',Single_people4 ),
+    # url(r'^Single_people5/',Single_people5 ),
+    # url(r'^Single_people6/',Single_people6 ),
+    # url(r'^Single_people7/',Single_people7 ),
+    # url(r'^Single_people8/',Single_people8 ),
     url(r'^test/',test ),
 ]
