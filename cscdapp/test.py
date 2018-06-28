@@ -17,18 +17,19 @@ def hello():
     '''
     方法一
     '''
-    # a = { "factorCode": "BOND_TYPE",
-    #   "factorName": "债项类型",
-    #   "options": [
-    #     {"id":10000000001836, "name":"国债", "ratio":1.05},
-    #     {"id":10000000001837, "name":"金融债 - 国际开发机构人民币债券、政策性银行金融债券", "ratio":1.05},
-    #     {"id":10000000001838, "name":"金融债 - 商业银行金融债券、其他金融机构债券", "ratio":1},
-    #     {"id":10000000001839, "name":"地方政府债券", "ratio":0.95},
-    #     {"id":10000000001840, "name":"企业债 - 一般企业债", "ratio":0.95},
-    #     {"id":10000000001841, "name":"公司债 - 一般公司债、可交换公司债券、可转债、资产支持证券", "ratio":0.95}
-    #   ]
-    # }
-    # result = [(item.get('name')) for item in a["options"]]
+    a = { "factorCode": "BOND_TYPE",
+      "factorName": "债项类型",
+      "options": [
+        {"id":10000000001836, "name":"国债", "ratio":1.05},
+        {"id":10000000001837, "name":"金融债 - 国际开发机构人民币债券、政策性银行金融债券", "ratio":1.05},
+        {"id":10000000001838, "name":"金融债 - 商业银行金融债券、其他金融机构债券", "ratio":1},
+        {"id":10000000001839, "name":"地方政府债券", "ratio":0.95},
+        {"id":10000000001840, "name":"企业债 - 一般企业债", "ratio":0.95},
+        {"id":10000000001841, "name":"公司债 - 一般公司债、可交换公司债券、可转债、资产支持证券", "ratio":0.95}
+      ]
+    }
+
+
 
 #
 #     print result
@@ -126,21 +127,21 @@ def Single_people1(request):
         # PUT,DELETE,HEAD,OPTION...
         return redirect('/Single_people1/')
 def test():
-    data_values =[]
-    data =[]
-    list = [u'', u'1.05', u'1.1', u'1.05', u'1.05', u'A1', u'', u'1.0', u'0.7', u'1.0', u'1.0', u'', u'1', u'1', u'1', u'A1']
-    for i in list:
-        v = str(i).replace('u\'', '\'').encode('utf-8')
-        data.append(v)
-    print data
-    print type(data)
-    a = float(data[5])
-    print a
-
+#     data_values =[]
+#     data =[]
+#     list = [u'', u'1.05', u'1.1', u'1.05', u'1.05', u'A1', u'', u'1.0', u'0.7', u'1.0', u'1.0', u'', u'1', u'1', u'1', u'A1']
+#     for i in list:
+#         v = str(i).replace('u\'', '\'').encode('utf-8')
+#         data.append(v)
+#     print data
+#     print type(data)
+#     a = float(data[5])
+#     print a
+#
 
 
     #     b = data.decode('unicode_escape')
-    a = [
+    a =[
       {
         "id": 1,
         "rating": "A1",
@@ -165,6 +166,29 @@ def test():
       }
     ]
 
+def LGD():
+    LGDValue =0.25
+    a =  [
+  { "lgdId": 1, "level": "LGD1", "upperBound": 0.1, "midPoint": 0.05, "lowBound": -99999.0, "adjust": 2},
+  { "lgdId": 2, "level": "LGD2", "upperBound": 0.2, "midPoint": 0.15, "lowBound": 0.1, "adjust": 1 },
+  {"lgdId": 2, "level": "LGD3", "upperBound": 0.3, "midPoint": 0.25, "lowBound": 0.2, "adjust": 1},
+            ]
+    for i in range(len(a)):
+        item = a[i]
+        if item['lowBound']<LGDValue and item['upperBound']>=LGDValue:
+            level = item['level']
+            break
+    print level
+
+def fun():
+
+    a= 1+1
+    print a
+def fun1():
+    b = fun()
+    print b
 if __name__ == '__main__':
     hello()
-    test()
+    #test()
+    #LGD()
+    fun1()

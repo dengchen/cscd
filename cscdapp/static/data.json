@@ -156,6 +156,11 @@
   { "lgdId": 10, "level": "LGD10", "upperBound": 1.0, "midPoint": 0.95, "lowBound": 0.9, "adjust": 0 }
 ],
   [
+    {
+    "id": 0,
+    "rating": "请选择",
+    "type": "无级别"
+    },
   {
     "id": 1,
     "rating": "A1",
